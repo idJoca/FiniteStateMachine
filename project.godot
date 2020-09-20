@@ -14,6 +14,26 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://addons/fsm-node/nodes/fsm.gd"
 }, {
+"base": "WindowDialog",
+"class": "FSMEditor",
+"language": "GDScript",
+"path": "res://addons/fsm-node/editor/FSMEditor.gd"
+}, {
+"base": "GraphEdit",
+"class": "FSMEditorGraph",
+"language": "GDScript",
+"path": "res://addons/fsm-node/editor/graph/FSMEditorGraph.gd"
+}, {
+"base": "GraphNode",
+"class": "FSMEditorGraphNodeState",
+"language": "GDScript",
+"path": "res://addons/fsm-node/editor/graph/nodes/state/FSMEditorGraphNodeState.gd"
+}, {
+"base": "GraphNode",
+"class": "FSMEditorGraphNodeTransition",
+"language": "GDScript",
+"path": "res://addons/fsm-node/editor/graph/nodes/transition/FSMEditorGraphNodeTransition.gd"
+}, {
 "base": "Node",
 "class": "FSM_Component",
 "language": "GDScript",
@@ -31,6 +51,10 @@ _global_script_classes=[ {
 } ]
 _global_script_class_icons={
 "FSM": "res://addons/fsm-node/nodes/icons/fsm.svg",
+"FSMEditor": "",
+"FSMEditorGraph": "",
+"FSMEditorGraphNodeState": "",
+"FSMEditorGraphNodeTransition": "",
 "FSM_Component": "",
 "State": "res://addons/fsm-node/nodes/icons/state.svg",
 "Transition": "res://addons/fsm-node/nodes/icons/transition.svg"
@@ -44,8 +68,8 @@ config/icon="res://icon.png"
 
 [display]
 
-window/size/width=96
-window/size/height=72
+window/size/width=1280
+window/size/height=720
 window/stretch/mode="2d"
 window/stretch/aspect="keep"
 

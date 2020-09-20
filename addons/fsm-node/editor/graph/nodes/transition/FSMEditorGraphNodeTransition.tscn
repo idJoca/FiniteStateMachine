@@ -1,0 +1,29 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://addons/fsm-node/editor/graph/nodes/transition/FSMEditorGraphNodeTransition.gd" type="Script" id=1]
+
+[node name="Transition" type="GraphNode"]
+margin_right = 128.0
+margin_bottom = 64.0
+title = "Transition"
+show_close = true
+slot/0/left_enabled = true
+slot/0/left_type = 0
+slot/0/left_color = Color( 0.92549, 0.623529, 0.266667, 1 )
+slot/0/right_enabled = true
+slot/0/right_type = 0
+slot/0/right_color = Color( 0.92549, 0.623529, 0.266667, 1 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="LineEdit" parent="."]
+margin_left = 16.0
+margin_top = 24.0
+margin_right = 112.0
+margin_bottom = 48.0
+text = "ToIdle"
+align = 1
+[connection signal="close_request" from="." to="." method="_on_close_request"]
+[connection signal="text_changed" from="Label" to="." method="_on_Label_text_changed"]

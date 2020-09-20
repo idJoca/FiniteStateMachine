@@ -186,15 +186,15 @@ transitions = [ NodePath("../ToWait") ]
 
 [node name="ToGo" type="Node" parent="TrafficLight/FSM"]
 script = ExtResource( 11 )
-target_state = NodePath("../Go")
+target_state = NodePath("/root/EditorNode/@@592/@@593/@@601/@@603/@@607/@@611/@@612/@@613/@@629/@@630/@@639/@@640/@@6339/@@6178/@@6179/@@6180/@@6181/@@6182/Node2D/TrafficLight/FSM/Go")
 
 [node name="ToWait" type="Node" parent="TrafficLight/FSM"]
 script = ExtResource( 11 )
-target_state = NodePath("../Wait")
+target_state = NodePath("/root/EditorNode/@@592/@@593/@@601/@@603/@@607/@@611/@@612/@@613/@@629/@@630/@@639/@@640/@@6339/@@6178/@@6179/@@6180/@@6181/@@6182/Node2D/TrafficLight/FSM/Wait")
 
 [node name="ToStop" type="Node" parent="TrafficLight/FSM"]
 script = ExtResource( 11 )
-target_state = NodePath("../Stop")
+target_state = NodePath("/root/EditorNode/@@592/@@593/@@601/@@603/@@607/@@611/@@612/@@613/@@629/@@630/@@639/@@640/@@6339/@@6178/@@6179/@@6180/@@6181/@@6182/Node2D/TrafficLight/FSM/Stop")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="TrafficLight"]
 anims/Go = SubResource( 1 )
@@ -234,27 +234,23 @@ position = Vector2( 0, 3 )
 texture = ExtResource( 10 )
 vframes = 2
 hframes = 3
-frame = 5
 
 [node name="Seconds" type="Sprite" parent="Stropwatch"]
-visible = false
 position = Vector2( 0, 3 )
 texture = ExtResource( 9 )
 vframes = 3
 hframes = 4
-frame = 11
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Stropwatch"]
 anims/Countdown = SubResource( 6 )
 anims/Idle = SubResource( 7 )
 script = ExtResource( 13 )
-[connection signal="activate" from="TrafficLight/FSM/Stop" to="TrafficLight/AnimationPlayer" method="_on_state_activate" binds= [ "Stop" ]]
 [connection signal="activate" from="TrafficLight/FSM/Stop" to="Node2D/CheckButton" method="_on_stop_activated"]
-[connection signal="activate" from="TrafficLight/FSM/Wait" to="TrafficLight/AnimationPlayer" method="_on_state_activate" binds= [ "Wait" ]]
+[connection signal="activate" from="TrafficLight/FSM/Stop" to="TrafficLight/AnimationPlayer" method="_on_state_activate" binds= [ "Stop" ]]
 [connection signal="activate" from="TrafficLight/FSM/Wait" to="Node2D/CheckButton" method="_on_wait_activated"]
+[connection signal="activate" from="TrafficLight/FSM/Wait" to="TrafficLight/AnimationPlayer" method="_on_state_activate" binds= [ "Wait" ]]
 [connection signal="activate" from="TrafficLight/FSM/Wait" to="Stropwatch/AnimationPlayer" method="_on_wait_activated"]
 [connection signal="activate" from="TrafficLight/FSM/Go" to="TrafficLight/AnimationPlayer" method="_on_state_activate" binds= [ "Go" ]]
 [connection signal="pressed" from="Node2D/CheckButton" to="TrafficLight/FSM/ToWait" method="_condition"]
 [connection signal="pressed" from="Node2D/CheckButton" to="TrafficLight/FSM/ToGo" method="_condition"]
-[connection signal="countdown_finished" from="Stropwatch/AnimationPlayer" to="TrafficLight/FSM/ToStop" method="_condition"]
 [connection signal="countdown_finished" from="Stropwatch/AnimationPlayer" to="Stropwatch/AnimationPlayer" method="_on_countdown_finished"]
